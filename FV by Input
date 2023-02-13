@@ -1,0 +1,16 @@
+CF = []
+# Lets suppose y is the number of Cash Flows (elements) for CF
+y = int(input("Enter the 'number' of Cash Flows for the Project: "))
+for i in range(y):
+    #Lets suppose 'values' = Cash Flow Values for each period
+    values = int(input("Enter the 'value' of Cash Flows for the period: "))
+    CF.append(values) # Here we are appending the values of inputs in our created LIST of CF
+Years = [] # Here we are creating an other variable LIST
+for i in range(7): # We are giving its range directly, without asking for any input or giving any other parameters
+    Years.append(i)
+Years = Years[::-1] # Here we are REVERSING the list of YEARS so that we can properly use the POWER factor for finding Future Cash Flows
+int_factor = 1.04
+future_value = 0
+for i in range (len(CF)): # Here we are telling the python that for each factor in the given length of CF perform the next line funciton
+    future_value += CF[i]*int_factor**Years[i]
+print(future_value)
