@@ -1,0 +1,19 @@
+# Lets suppose a business wants to purchase a machine as initial investment which will give the Cash Flows later for 5 years
+# We have to prepare the scenerio to build a function to get the NPV of the project at different Cost of Capitals:
+# If we use RANGE (LEN(cash_flow (LIST NAME)), we will not NEED to create separately the LIST VARIABLE for YEARS
+
+cash_flows = [] # defining the list variable
+
+period = int(input("Enter the total 'number' of periods of cash flows of the project: "))
+for i in range(period):
+    amounts = int(input("Enter the 'cost' of investment, followed by the 'values' of possible cash flows of the project"))
+    cash_flows.append(amounts)
+years = []
+for i in range (period): # Here I defined the range for Years, as equal to that of 'period', which is also the range of cash_flows
+    years.append(period) # Here I simply append the Predefined RANGE 'period' to make the range of years, also.
+interest = float(input("Enter the rate of interest in decimals: "))
+int_factor = 1+interest
+npv = 0
+for i in range (period): # here again we give the PREDEFINED range 'period' for npv to perform next line functions
+    npv += cash_flows[i]/int_factor**(i)
+print("The Net Prestent Value of your project is:",npv)
